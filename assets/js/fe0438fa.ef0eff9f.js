@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[582],{4410:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/LithHash/Coppermind/blob/main","baseUrl":"/Coppermind/","classOrder":["Coppermind"],"apiCategories":[]}')}}]);

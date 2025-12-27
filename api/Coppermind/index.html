@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Coppermind | Coppermind</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://LithHash.github.io/Coppermind/api/Coppermind"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Coppermind | Coppermind"><meta data-rh="true" name="description" content="A robust, feature-rich data persistence library for Roblox.
+
+## Features
+- 💾 Schema-based data management with templates
+- 🔒 Session locking to prevent data corruption
+- ⏱️ Configurable auto-save intervals
+- 🔄 Data migrations for schema evolution
+- 💱 Atomic transactions between stores
+- 🧪 Mock mode for testing
+- 📡 Event-driven architecture
+- 🧊 Immutable data with deep freeze
+
+```lua
+local Coppermind = require(path.to.Coppermind)
+
+local PlayerSchema = Coppermind.registerSchema({
+	name = &quot;PlayerData&quot;,
+	dataTemplate = {
+		coins = 0,
+		gems = 0,
+	},
+	migrations = {},
+})
+
+local store = Coppermind.loadStore(PlayerSchema, tostring(player.UserId), {
+	sessionLocked = true,
+	autoSave = 60,
+})
+```"><meta data-rh="true" property="og:description" content="A robust, feature-rich data persistence library for Roblox.
+
+## Features
+- 💾 Schema-based data management with templates
+- 🔒 Session locking to prevent data corruption
+- ⏱️ Configurable auto-save intervals
+- 🔄 Data migrations for schema evolution
+- 💱 Atomic transactions between stores
+- 🧪 Mock mode for testing
+- 📡 Event-driven architecture
+- 🧊 Immutable data with deep freeze
+
+```lua
+local Coppermind = require(path.to.Coppermind)
+
+local PlayerSchema = Coppermind.registerSchema({
+	name = &quot;PlayerData&quot;,
+	dataTemplate = {
+		coins = 0,
+		gems = 0,
+	},
+	migrations = {},
+})
+
+local store = Coppermind.loadStore(PlayerSchema, tostring(player.UserId), {
+	sessionLocked = true,
+	autoSave = 60,
+})
+```"><link data-rh="true" rel="canonical" href="https://LithHash.github.io/Coppermind/api/Coppermind"><link data-rh="true" rel="alternate" href="https://LithHash.github.io/Coppermind/api/Coppermind" hreflang="en"><link data-rh="true" rel="alternate" href="https://LithHash.github.io/Coppermind/api/Coppermind" hreflang="x-default"><link rel="stylesheet" href="/Coppermind/assets/css/styles.2def2ea0.css">
+<script src="/Coppermind/assets/js/runtime~main.11acff0b.js" defer="defer"></script>
+<script src="/Coppermind/assets/js/main.f036e5eb.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Coppermind/"><b class="navbar__title text--truncate">Coppermind</b></a><a class="navbar__item navbar__link" href="/Coppermind/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Coppermind/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/LithHash/Coppermind" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/LithHash/Coppermind" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Coppermind/api/Coppermind">​Coppermind</a></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">Coppermind</span></h1><div class="luaClassTags_EipM"></div><div>
+<p>A robust, feature-rich data persistence library for Roblox.</p>
+<h2>Features</h2>
+<ul>
+  <li>💾 Schema-based data management with templates</li>
+  <li>🔒 Session locking to prevent data corruption</li>
+  <li>⏱️ Configurable auto-save intervals</li>
+  <li>🔄 Data migrations for schema evolution</li>
+  <li>💱 Atomic transactions between stores</li>
+  <li>🧪 Mock mode for testing</li>
+  <li>📡 Event-driven architecture</li>
+  <li>🧊 Immutable data with deep freeze</li>
+</ul>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> Coppermind <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span>to<span class="token punctuation">.</span>Coppermind<span class="token punctuation">)</span>
+
+<span class="token keyword">local</span> PlayerSchema <span class="token operator">=</span> Coppermind<span class="token punctuation">.</span><span class="token function">registerSchema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	name <span class="token operator">=</span> <span class="token string">"PlayerData"</span><span class="token punctuation">,</span>
+	dataTemplate <span class="token operator">=</span> <span class="token punctuation">{</span>
+		coins <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+		gems <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	migrations <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">local</span> store <span class="token operator">=</span> Coppermind<span class="token punctuation">.</span><span class="token function">loadStore</span><span class="token punctuation">(</span>PlayerSchema<span class="token punctuation">,</span> <span class="token function">tostring</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span>UserId<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+	sessionLocked <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+	autoSave <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a href="#types" class="hash-link" aria-label="Direct link to Types" title="Direct link to Types">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="MigrationFn"><code style="text-decoration:none">MigrationFn</code><a href="#MigrationFn" class="hash-link" aria-label="Direct link to MigrationFn" title="Direct link to MigrationFn">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L47"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">type</code> <code>MigrationFn<!-- --> = </code> <code class="purple_ieR2">(</code><code>data<!-- -->: </code><code class="green_DgR4">{</code><span><code>[</code><code class="blue_P4bS">string</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="green_DgR4">}</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><code class="purple_ieR2">)</code></div><div>
+<p>A function that transforms data from one version to the next.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Schema"><code style="text-decoration:none">Schema</code><a href="#Schema" class="hash-link" aria-label="Direct link to Schema" title="Direct link to Schema">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L56"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">interface</code> <code>Schema<!-- --> <!-- -->{</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>Unique identifier for the schema (used as DataStore name)</p>
+</span></span></div><div><code>dataTemplate<!-- -->: </code><code class="blue_P4bS">T</code><span class="inlineDescription_G7Er">-- <span>
+<p>Default values for new data entries</p>
+</span></span></div><div><code>migrations<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#MigrationFn">MigrationFn</a></code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
+<p>Array of migration functions for schema evolution</p>
+</span></span></div></div><code>}</code></div><div></div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="StoreState"><code style="text-decoration:none">StoreState</code><a href="#StoreState" class="hash-link" aria-label="Direct link to StoreState" title="Direct link to StoreState">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L86"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">type</code> <code>StoreState<!-- --> = </code> <code class="blue_P4bS">&quot;LOADING&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;READY&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;SAVING&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;UNLOADING&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;UNLOADED&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;ERROR&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;SESSION_LOCKED&quot;</code></div><div>
+<p>The current state of a store.</p>
+<ul>
+  <li><code>LOADING</code>: Data is being loaded from DataStore</li>
+  <li><code>READY</code>: Data is loaded and available</li>
+  <li><code>SAVING</code>: Data is being saved to DataStore</li>
+  <li><code>UNLOADING</code>: Store is being saved and released</li>
+  <li><code>UNLOADED</code>: Store has been released</li>
+  <li><code>ERROR</code>: An error occurred during load/save</li>
+  <li><code>SESSION_LOCKED</code>: Another server has locked this data</li>
+</ul>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="Store"><code style="text-decoration:none">Store</code><a href="#Store" class="hash-link" aria-label="Direct link to Store" title="Direct link to Store">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L102"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">interface</code> <code>Store<!-- --> <!-- -->{</code><div class="inset_uKQm"><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The unique key for this store</p>
+</span></span></div><div><code>data<!-- -->: </code><code class="blue_P4bS">T?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The current data (nil while loading)</p>
+</span></span></div><div><code>state<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#StoreState">StoreState</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>Current state of the store</p>
+</span></span></div><div><code>sessionId<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Session lock ID (if session locked)</p>
+</span></span></div><div><code>version<!-- -->: </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>Data version (for migrations)</p>
+</span></span></div><div><code>lastSaved<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Timestamp of last successful save</p>
+</span></span></div><div><code>onReady<!-- -->: </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
+<p>Fires when store is ready</p>
+</span></span></div><div><code>onSaved<!-- -->: </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
+<p>Fires after each successful save</p>
+</span></span></div><div><code>onError<!-- -->: </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
+<p>Fires on any error</p>
+</span></span></div><div><code>onTransaction<!-- -->: </code><code class="blue_P4bS">Signal</code><span class="inlineDescription_G7Er">-- <span>
+<p>Fires when a transaction completes</p>
+</span></span></div></div><code>}</code></div><div></div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="onLoaded"><code style="text-decoration:none">onLoaded</code><a href="#onLoaded" class="hash-link" aria-label="Direct link to onLoaded" title="Direct link to onLoaded">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L801"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.<!-- -->onLoaded<!-- -->:<!-- --> </code> <code class="blue_P4bS">Signal</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Store">Store</a></code><code class="op_lSLc">&gt;</code></div><div>
+<p>Fires when any store finishes loading.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="onSaved"><code style="text-decoration:none">onSaved</code><a href="#onSaved" class="hash-link" aria-label="Direct link to onSaved" title="Direct link to onSaved">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L808"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.<!-- -->onSaved<!-- -->:<!-- --> </code> <code class="blue_P4bS">Signal</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Store">Store</a></code><code class="op_lSLc">&gt;</code></div><div>
+<p>Fires when any store is saved.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="onError"><code style="text-decoration:none">onError</code><a href="#onError" class="hash-link" aria-label="Direct link to onError" title="Direct link to onError">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L815"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.<!-- -->onError<!-- -->:<!-- --> </code> <code class="blue_P4bS">Signal</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Store">Store,</a></code><code class="blue_P4bS">string</code><code class="op_lSLc">&gt;</code></div><div>
+<p>Fires when any store encounters an error.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="onUnloaded"><code style="text-decoration:none">onUnloaded</code><a href="#onUnloaded" class="hash-link" aria-label="Direct link to onUnloaded" title="Direct link to onUnloaded">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L822"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.<!-- -->onUnloaded<!-- -->:<!-- --> </code> <code class="blue_P4bS">Signal</code><code class="op_lSLc">&lt;</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Store">Store</a></code><code class="op_lSLc">&gt;</code></div><div>
+<p>Fires when any store is unloaded.</p>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="registerSchema"><code style="text-decoration:none">registerSchema</code><a href="#registerSchema" class="hash-link" aria-label="Direct link to registerSchema" title="Direct link to registerSchema">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L224"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">registerSchema</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema definition</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><span class="inlineDescription_G7Er">-- <span>
+<p>The registered schema</p>
+</span></span></div><div>
+<p>Registers a new schema for data storage.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> PlayerSchema <span class="token operator">=</span> Coppermind<span class="token punctuation">.</span><span class="token function">registerSchema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	name <span class="token operator">=</span> <span class="token string">"PlayerData"</span><span class="token punctuation">,</span>
+	dataTemplate <span class="token operator">=</span> <span class="token punctuation">{</span>
+		coins <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+		gems <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+		inventory <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	migrations <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getSchema"><code style="text-decoration:none">getSchema</code><a href="#getSchema" class="hash-link" aria-label="Direct link to getSchema" title="Direct link to getSchema">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L242"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">getSchema</code><code>(</code><div class="inset_uKQm"><div><code>name<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema name</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema?</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema, or nil if not found</p>
+</span></span></div><div>
+<p>Retrieves a registered schema by name.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getStore"><code style="text-decoration:none">getStore</code><a href="#getStore" class="hash-link" aria-label="Direct link to getStore" title="Direct link to getStore">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L254"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">getStore</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Store">Store</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code class="blue_P4bS">?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store, or nil if not loaded</p>
+</span></span></div><div>
+<p>Gets a reference to a loaded store.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="saveStore"><code style="text-decoration:none">saveStore</code><a href="#saveStore" class="hash-link" aria-label="Direct link to saveStore" title="Direct link to saveStore">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L269"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">saveStore</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the save was queued successfully</p>
+</span></span></div><div>
+<p>Saves a store's data to the DataStore.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="loadStore"><code style="text-decoration:none">loadStore</code><a href="#loadStore" class="hash-link" aria-label="Direct link to loadStore" title="Direct link to loadStore">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L345"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">loadStore</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema to use</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Unique identifier for this data entry</p>
+</span></span></div><div><code>config<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#StoreConfig">StoreConfig?</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>Optional configuration</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Store">Store</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store object (data loads asynchronously)</p>
+</span></span></div><h3>Types</h3><h3 class="anchor anchorWithStickyNavbar_LWe7" id="StoreConfig"><a href="#StoreConfig" class="hash-link" aria-label="Direct link to StoreConfig" title="Direct link to StoreConfig">​</a></h3><div class="memberString_GwaU"><code class="purple_ieR2">interface</code> <code>StoreConfig<!-- --> <!-- -->{</code><div class="inset_uKQm"><div><code>sessionLocked<!-- -->: </code><code class="blue_P4bS">boolean?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether to lock this data to the current server session</p>
+</span></span></div><div><code>autoSave<!-- -->: </code><code class="blue_P4bS">number?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Auto-save interval in seconds (nil to disable)</p>
+</span></span></div></div><code>}</code></div><div></div><div>
+<p>Loads a store from the DataStore.</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> store <span class="token operator">=</span> Coppermind<span class="token punctuation">.</span><span class="token function">loadStore</span><span class="token punctuation">(</span>PlayerSchema<span class="token punctuation">,</span> <span class="token function">tostring</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span>UserId<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+	sessionLocked <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+	autoSave <span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+store<span class="token punctuation">.</span>onReady<span class="token punctuation">:</span><span class="token function">Connect</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Data loaded!"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="unloadStore"><code style="text-decoration:none">unloadStore</code><a href="#unloadStore" class="hash-link" aria-label="Direct link to unloadStore" title="Direct link to unloadStore">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L425"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">unloadStore</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the unload was queued successfully</p>
+</span></span></div><div>
+<p>Unloads a store, saving its data and releasing any session lock.</p>
+<pre class="language-lua"><code class="language-lua">game<span class="token punctuation">.</span>Players<span class="token punctuation">.</span>PlayerRemoving<span class="token punctuation">:</span><span class="token function">Connect</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>player<span class="token punctuation">)</span>
+	Coppermind<span class="token punctuation">.</span><span class="token function">unloadStore</span><span class="token punctuation">(</span>PlayerSchema<span class="token punctuation">,</span> <span class="token function">tostring</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span>UserId<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isLoaded"><code style="text-decoration:none">isLoaded</code><a href="#isLoaded" class="hash-link" aria-label="Direct link to isLoaded" title="Direct link to isLoaded">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L475"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">isLoaded</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the store is loaded</p>
+</span></span></div><div>
+<p>Checks if a store is currently loaded.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getData"><code style="text-decoration:none">getData</code><a href="#getData" class="hash-link" aria-label="Direct link to getData" title="Direct link to getData">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L493"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">getData</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">T?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The data, or nil if not available</p>
+</span></span></div><div>
+<p>Gets the current data for a store.</p>
+
+  
+    
+    
+      <div class="admonition admonition-caution alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">Data is Immutable</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>
+            The returned data is frozen and cannot be modified directly.
+            Use <code>updateData</code> to make changes.
+          </p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="updateData"><code style="text-decoration:none">updateData</code><a href="#updateData" class="hash-link" aria-label="Direct link to updateData" title="Direct link to updateData">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L542"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">updateData</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div><div><code>callback<!-- -->: </code><code class="purple_ieR2">(</code><code>data<!-- -->: </code><code class="blue_P4bS">T</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">T?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The update function</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the update was successful</p>
+</span></span></div><div>
+<p>Updates a store's data safely.</p>
+<p>
+  The callback receives a mutable copy of the data. Either mutate it directly
+  and return nil, or return a new table to replace the data entirely.
+</p>
+<pre class="language-lua"><code class="language-lua"><span class="token comment">-- Mutation style</span>
+Coppermind<span class="token punctuation">.</span><span class="token function">updateData</span><span class="token punctuation">(</span>PlayerSchema<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+	data<span class="token punctuation">.</span>coins <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">100</span>
+	<span class="token keyword">return</span> <span class="token keyword">nil</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- Replacement style</span>
+Coppermind<span class="token punctuation">.</span><span class="token function">updateData</span><span class="token punctuation">(</span>PlayerSchema<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span> coins <span class="token operator">=</span> data<span class="token punctuation">.</span>coins <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">,</span> gems <span class="token operator">=</span> data<span class="token punctuation">.</span>gems <span class="token punctuation">}</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="setMockMode"><code style="text-decoration:none">setMockMode</code><a href="#setMockMode" class="hash-link" aria-label="Direct link to setMockMode" title="Direct link to setMockMode">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L590"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">setMockMode</code><code>(</code><div class="inset_uKQm"><div><code>enabled<!-- -->: </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether to enable mock mode</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Enables or disables mock mode for testing.</p>
+<p>In mock mode, data is stored in memory instead of DataStores.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isMockMode"><code style="text-decoration:none">isMockMode</code><a href="#isMockMode" class="hash-link" aria-label="Direct link to isMockMode" title="Direct link to isMockMode">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L601"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">isMockMode</code><code>(</code><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether mock mode is enabled</p>
+</span></span></div><div>
+<p>Checks if mock mode is currently enabled.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="clearMockData"><code style="text-decoration:none">clearMockData</code><a href="#clearMockData" class="hash-link" aria-label="Direct link to clearMockData" title="Direct link to clearMockData">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L610"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">clearMockData</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Clears all mock data. Use between tests.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="transaction"><code style="text-decoration:none">transaction</code><a href="#transaction" class="hash-link" aria-label="Direct link to transaction" title="Direct link to transaction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L685"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">transaction</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema (both stores must use the same schema)</p>
+</span></span></div><div><code>keyA<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>First store key</p>
+</span></span></div><div><code>keyB<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Second store key</p>
+</span></span></div><div><code>callback<!-- -->: </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code>dataA<!-- -->: </code><code class="blue_P4bS">T</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code>dataB<!-- -->: </code><code class="blue_P4bS">T</code></div><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="purple_ieR2">(</code><div class="inset_uKQm"><code class="blue_P4bS">boolean?</code><code class="purple_ieR2">,</code></div><div class="inset_uKQm"><code class="blue_P4bS">string?</code></div><code class="purple_ieR2">)</code><span class="inlineDescription_G7Er">-- <span>
+<p>Transaction function</p>
+</span></span></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the transaction succeeded</p>
+</span></span></div><div><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Transaction ID on success, or error message on failure</p>
+</span></span></div></div><code>)</code></div><div>
+<p>Executes an atomic transaction between two stores.</p>
+<p>Either both stores are updated, or neither is (rollback on failure).</p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> success<span class="token punctuation">,</span> result <span class="token operator">=</span> Coppermind<span class="token punctuation">.</span><span class="token function">transaction</span><span class="token punctuation">(</span>
+	PlayerSchema<span class="token punctuation">,</span>
+	sellerKey<span class="token punctuation">,</span>
+	buyerKey<span class="token punctuation">,</span>
+	<span class="token keyword">function</span><span class="token punctuation">(</span>sellerData<span class="token punctuation">,</span> buyerData<span class="token punctuation">)</span>
+		<span class="token keyword">if</span> buyerData<span class="token punctuation">.</span>coins <span class="token operator">&#x3C;</span> <span class="token number">100</span> <span class="token keyword">then</span>
+			<span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">,</span> <span class="token string">"Not enough coins"</span>
+		<span class="token keyword">end</span>
+		
+		sellerData<span class="token punctuation">.</span>coins <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">100</span>
+		buyerData<span class="token punctuation">.</span>coins <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">100</span>
+		<span class="token keyword">return</span> <span class="token keyword">true</span>
+	<span class="token keyword">end</span>
+<span class="token punctuation">)</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getPendingTransactionCount"><code style="text-decoration:none">getPendingTransactionCount</code><a href="#getPendingTransactionCount" class="hash-link" aria-label="Direct link to getPendingTransactionCount" title="Direct link to getPendingTransactionCount">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/LithHash/Coppermind/blob/main/src/init.luau#L786"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>Coppermind<!-- -->.</code><code class="green_DgR4">getPendingTransactionCount</code><code>(</code><div class="inset_uKQm"><div><code>schema<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/Coppermind/api/Coppermind#Schema">Schema</a></code><code class="op_lSLc">&lt;</code><code class="blue_P4bS">T</code><code class="op_lSLc">&gt;</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The schema</p>
+</span></span></div><div><code>key<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The store key</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
+<p>Number of pending transactions</p>
+</span></span></div><div>
+<p>Gets the number of pending transactions for a store.</p>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;registerSchema&quot;,
+            &quot;desc&quot;: &quot;Registers a new schema for data storage.\n\n\n```lua\nlocal PlayerSchema = Coppermind.registerSchema({\n\tname = \&quot;PlayerData\&quot;,\n\tdataTemplate = {\n\t\tcoins = 0,\n\t\tgems = 0,\n\t\tinventory = {},\n\t},\n\tmigrations = {},\n})\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema definition&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The registered schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 224,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getSchema&quot;,
+            &quot;desc&quot;: &quot;Retrieves a registered schema by name.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;name&quot;,
+                    &quot;desc&quot;: &quot;The schema name&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The schema, or nil if not found&quot;,
+                    &quot;lua_type&quot;: &quot;Schema?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 242,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getStore&quot;,
+            &quot;desc&quot;: &quot;Gets a reference to a loaded store.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The store, or nil if not loaded&quot;,
+                    &quot;lua_type&quot;: &quot;Store&lt;T&gt;?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 254,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;saveStore&quot;,
+            &quot;desc&quot;: &quot;Saves a store&#x27;s data to the DataStore.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the save was queued successfully&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 269,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;loadStore&quot;,
+            &quot;desc&quot;: &quot;Loads a store from the DataStore.\n\n\n```lua\nlocal store = Coppermind.loadStore(PlayerSchema, tostring(player.UserId), {\n\tsessionLocked = true,\n\tautoSave = 60,\n})\n\nstore.onReady:Connect(function()\n\tprint(\&quot;Data loaded!\&quot;)\nend)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema to use&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;Unique identifier for this data entry&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;config&quot;,
+                    &quot;desc&quot;: &quot;Optional configuration&quot;,
+                    &quot;lua_type&quot;: &quot;StoreConfig?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The store object (data loads asynchronously)&quot;,
+                    &quot;lua_type&quot;: &quot;Store&lt;T&gt;&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 345,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;unloadStore&quot;,
+            &quot;desc&quot;: &quot;Unloads a store, saving its data and releasing any session lock.\n\n\n```lua\ngame.Players.PlayerRemoving:Connect(function(player)\n\tCoppermind.unloadStore(PlayerSchema, tostring(player.UserId))\nend)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the unload was queued successfully&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 425,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isLoaded&quot;,
+            &quot;desc&quot;: &quot;Checks if a store is currently loaded.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the store is loaded&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 475,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getData&quot;,
+            &quot;desc&quot;: &quot;Gets the current data for a store.\n\n:::caution Data is Immutable\nThe returned data is frozen and cannot be modified directly.\nUse `updateData` to make changes.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The data, or nil if not available&quot;,
+                    &quot;lua_type&quot;: &quot;T?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 493,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;updateData&quot;,
+            &quot;desc&quot;: &quot;Updates a store&#x27;s data safely.\n\nThe callback receives a mutable copy of the data. Either mutate it directly\nand return nil, or return a new table to replace the data entirely.\n\n\n```lua\n-- Mutation style\nCoppermind.updateData(PlayerSchema, key, function(data)\n\tdata.coins += 100\n\treturn nil\nend)\n\n-- Replacement style\nCoppermind.updateData(PlayerSchema, key, function(data)\n\treturn { coins = data.coins + 100, gems = data.gems }\nend)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;callback&quot;,
+                    &quot;desc&quot;: &quot;The update function&quot;,
+                    &quot;lua_type&quot;: &quot;(data: T) -&gt; T?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the update was successful&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 542,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;setMockMode&quot;,
+            &quot;desc&quot;: &quot;Enables or disables mock mode for testing.\n\nIn mock mode, data is stored in memory instead of DataStores.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;enabled&quot;,
+                    &quot;desc&quot;: &quot;Whether to enable mock mode&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 590,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isMockMode&quot;,
+            &quot;desc&quot;: &quot;Checks if mock mode is currently enabled.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether mock mode is enabled&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 601,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;clearMockData&quot;,
+            &quot;desc&quot;: &quot;Clears all mock data. Use between tests.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 610,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;transaction&quot;,
+            &quot;desc&quot;: &quot;Executes an atomic transaction between two stores.\n\nEither both stores are updated, or neither is (rollback on failure).\n\n\n```lua\nlocal success, result = Coppermind.transaction(\n\tPlayerSchema,\n\tsellerKey,\n\tbuyerKey,\n\tfunction(sellerData, buyerData)\n\t\tif buyerData.coins &lt; 100 then\n\t\t\treturn false, \&quot;Not enough coins\&quot;\n\t\tend\n\t\t\n\t\tsellerData.coins += 100\n\t\tbuyerData.coins -= 100\n\t\treturn true\n\tend\n)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema (both stores must use the same schema)&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyA&quot;,
+                    &quot;desc&quot;: &quot;First store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;keyB&quot;,
+                    &quot;desc&quot;: &quot;Second store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;callback&quot;,
+                    &quot;desc&quot;: &quot;Transaction function&quot;,
+                    &quot;lua_type&quot;: &quot;(dataA: T, dataB: T) -&gt; (boolean?, string?)&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the transaction succeeded&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;Transaction ID on success, or error message on failure&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 685,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getPendingTransactionCount&quot;,
+            &quot;desc&quot;: &quot;Gets the number of pending transactions for a store.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;schema&quot;,
+                    &quot;desc&quot;: &quot;The schema&quot;,
+                    &quot;lua_type&quot;: &quot;Schema&lt;T&gt;&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;desc&quot;: &quot;The store key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Number of pending transactions&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 786,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [
+        {
+            &quot;name&quot;: &quot;onLoaded&quot;,
+            &quot;desc&quot;: &quot;Fires when any store finishes loading.&quot;,
+            &quot;lua_type&quot;: &quot;Signal&lt;Store&gt;&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 801,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;onSaved&quot;,
+            &quot;desc&quot;: &quot;Fires when any store is saved.&quot;,
+            &quot;lua_type&quot;: &quot;Signal&lt;Store&gt;&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 808,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;onError&quot;,
+            &quot;desc&quot;: &quot;Fires when any store encounters an error.&quot;,
+            &quot;lua_type&quot;: &quot;Signal&lt;Store, string&gt;&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 815,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;onUnloaded&quot;,
+            &quot;desc&quot;: &quot;Fires when any store is unloaded.&quot;,
+            &quot;lua_type&quot;: &quot;Signal&lt;Store&gt;&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 822,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        }
+    ],
+    &quot;types&quot;: [
+        {
+            &quot;name&quot;: &quot;MigrationFn&quot;,
+            &quot;desc&quot;: &quot;A function that transforms data from one version to the next.&quot;,
+            &quot;lua_type&quot;: &quot;(data: {[string]: any}) -&gt; ()&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 47,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Schema&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;name&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;,
+                    &quot;desc&quot;: &quot;Unique identifier for the schema (used as DataStore name)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;dataTemplate&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;,
+                    &quot;desc&quot;: &quot;Default values for new data entries&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;migrations&quot;,
+                    &quot;lua_type&quot;: &quot;{MigrationFn}&quot;,
+                    &quot;desc&quot;: &quot;Array of migration functions for schema evolution&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 56,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;StoreConfig&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;sessionLocked&quot;,
+                    &quot;lua_type&quot;: &quot;boolean?&quot;,
+                    &quot;desc&quot;: &quot;Whether to lock this data to the current server session&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;autoSave&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;,
+                    &quot;desc&quot;: &quot;Auto-save interval in seconds (nil to disable)&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 68,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;StoreState&quot;,
+            &quot;desc&quot;: &quot;The current state of a store.\n- `LOADING`: Data is being loaded from DataStore\n- `READY`: Data is loaded and available\n- `SAVING`: Data is being saved to DataStore\n- `UNLOADING`: Store is being saved and released\n- `UNLOADED`: Store has been released\n- `ERROR`: An error occurred during load/save\n- `SESSION_LOCKED`: Another server has locked this data&quot;,
+            &quot;lua_type&quot;: &quot;\&quot;LOADING\&quot; | \&quot;READY\&quot; | \&quot;SAVING\&quot; | \&quot;UNLOADING\&quot; | \&quot;UNLOADED\&quot; | \&quot;ERROR\&quot; | \&quot;SESSION_LOCKED\&quot;&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 86,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Store&quot;,
+            &quot;desc&quot;: &quot;&quot;,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;key&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;,
+                    &quot;desc&quot;: &quot;The unique key for this store&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;data&quot;,
+                    &quot;lua_type&quot;: &quot;T?&quot;,
+                    &quot;desc&quot;: &quot;The current data (nil while loading)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;state&quot;,
+                    &quot;lua_type&quot;: &quot;StoreState&quot;,
+                    &quot;desc&quot;: &quot;Current state of the store&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;sessionId&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;,
+                    &quot;desc&quot;: &quot;Session lock ID (if session locked)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;version&quot;,
+                    &quot;lua_type&quot;: &quot;number&quot;,
+                    &quot;desc&quot;: &quot;Data version (for migrations)&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;lastSaved&quot;,
+                    &quot;lua_type&quot;: &quot;number?&quot;,
+                    &quot;desc&quot;: &quot;Timestamp of last successful save&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;onReady&quot;,
+                    &quot;lua_type&quot;: &quot;Signal&quot;,
+                    &quot;desc&quot;: &quot;Fires when store is ready&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;onSaved&quot;,
+                    &quot;lua_type&quot;: &quot;Signal&quot;,
+                    &quot;desc&quot;: &quot;Fires after each successful save&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;onError&quot;,
+                    &quot;lua_type&quot;: &quot;Signal&quot;,
+                    &quot;desc&quot;: &quot;Fires on any error&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;onTransaction&quot;,
+                    &quot;lua_type&quot;: &quot;Signal&quot;,
+                    &quot;desc&quot;: &quot;Fires when a transaction completes&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 102,
+                &quot;path&quot;: &quot;src/init.luau&quot;
+            }
+        }
+    ],
+    &quot;name&quot;: &quot;Coppermind&quot;,
+    &quot;desc&quot;: &quot;A robust, feature-rich data persistence library for Roblox.\n\n## Features\n- 💾 Schema-based data management with templates\n- 🔒 Session locking to prevent data corruption\n- ⏱️ Configurable auto-save intervals\n- 🔄 Data migrations for schema evolution\n- 💱 Atomic transactions between stores\n- 🧪 Mock mode for testing\n- 📡 Event-driven architecture\n- 🧊 Immutable data with deep freeze\n\n```lua\nlocal Coppermind = require(path.to.Coppermind)\n\nlocal PlayerSchema = Coppermind.registerSchema({\n\tname = \&quot;PlayerData\&quot;,\n\tdataTemplate = {\n\t\tcoins = 0,\n\t\tgems = 0,\n\t},\n\tmigrations = {},\n})\n\nlocal store = Coppermind.loadStore(PlayerSchema, tostring(player.UserId), {\n\tsessionLocked = true,\n\tautoSave = 60,\n})\n```&quot;,
+    &quot;source&quot;: {
+        &quot;line&quot;: 34,
+        &quot;path&quot;: &quot;src/init.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#MigrationFn" class="table-of-contents__link toc-highlight">MigrationFn</a></li><li><a href="#Schema" class="table-of-contents__link toc-highlight">Schema</a></li><li><a href="#Store" class="table-of-contents__link toc-highlight">Store</a></li><li><a href="#StoreConfig" class="table-of-contents__link toc-highlight">StoreConfig</a></li><li><a href="#StoreState" class="table-of-contents__link toc-highlight">StoreState</a></li></ul></li><li><a href="#properties" class="table-of-contents__link toc-highlight">Properties</a><ul><li><a href="#onError" class="table-of-contents__link toc-highlight">onError</a></li><li><a href="#onLoaded" class="table-of-contents__link toc-highlight">onLoaded</a></li><li><a href="#onSaved" class="table-of-contents__link toc-highlight">onSaved</a></li><li><a href="#onUnloaded" class="table-of-contents__link toc-highlight">onUnloaded</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#clearMockData" class="table-of-contents__link toc-highlight">.clearMockData</a></li><li><a href="#getData" class="table-of-contents__link toc-highlight">.getData</a></li><li><a href="#getPendingTransactionCount" class="table-of-contents__link toc-highlight">.getPendingTransactionCount</a></li><li><a href="#getSchema" class="table-of-contents__link toc-highlight">.getSchema</a></li><li><a href="#getStore" class="table-of-contents__link toc-highlight">.getStore</a></li><li><a href="#isLoaded" class="table-of-contents__link toc-highlight">.isLoaded</a></li><li><a href="#isMockMode" class="table-of-contents__link toc-highlight">.isMockMode</a></li><li><a href="#loadStore" class="table-of-contents__link toc-highlight">.loadStore</a></li><li><a href="#registerSchema" class="table-of-contents__link toc-highlight">.registerSchema</a></li><li><a href="#saveStore" class="table-of-contents__link toc-highlight">.saveStore</a></li><li><a href="#setMockMode" class="table-of-contents__link toc-highlight">.setMockMode</a></li><li><a href="#transaction" class="table-of-contents__link toc-highlight">.transaction</a></li><li><a href="#unloadStore" class="table-of-contents__link toc-highlight">.unloadStore</a></li><li><a href="#updateData" class="table-of-contents__link toc-highlight">.updateData</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Coppermind/docs/getting-started">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/Coppermind/api/Coppermind">API Reference</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/LithHash/Coppermind" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 LithHash. Built with Moonwave and Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
