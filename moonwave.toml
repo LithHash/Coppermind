@@ -1,0 +1,58 @@
+title = "Coppermind"
+gitRepoUrl = "https://github.com/LithHash/Coppermind"
+
+gitSourceBranch = "main"
+changelog = true
+classOrder = ["Coppermind"]
+
+[docusaurus]
+organizationName = "LithHash"
+projectName = "Coppermind"
+baseUrl = "/Coppermind"
+tagline = "A robust, feature-rich data persistence library for Roblox"
+
+[navbar]
+title = "Coppermind"
+
+[[navbar.items]]
+href = "https://github.com/LithHash/Coppermind"
+label = "GitHub"
+position = "right"
+
+[footer]
+style = "dark"
+copyright = "Copyright © 2025 LithHash. Built with Moonwave and Docusaurus."
+
+[[footer.links]]
+title = "Documentation"
+
+[[footer.links.items]]
+label = "Getting Started"
+to = "docs/getting-started"
+
+[[footer.links.items]]
+label = "API Reference"
+to = "api/Coppermind"
+
+[[footer.links]]
+title = "Community"
+
+[[footer.links.items]]
+label = "GitHub"
+href = "https://github.com/LithHash/Coppermind"
+
+[home]
+enabled = true
+includeReadme = false
+
+[[home.features]]
+title = "Session Locking"
+description = "Prevent data corruption with automatic session locks that expire safely."
+
+[[home.features]]
+title = "Atomic Transactions"
+description = "Execute safe two-party transactions with automatic rollback on failure."
+
+[[home.features]]
+title = "Type Safe"
+description = "Full Luau strict mode support with proper type exports."
