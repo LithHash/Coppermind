@@ -1,0 +1,17 @@
+name = "lithhash/coppermind"
+version = "0.1.1"
+authors = ["lithhash"]
+repository = "https://github.com/LithHash/Coppermind"
+license = "MIT"
+
+[target]
+environment = "roblox"
+lib = "src/init.luau"
+build_files = ["src"]
+
+[indices]
+default = "https://github.com/pesde-pkg/index"
+
+[engines]
+pesde = "^0.7.0"
+lune = "^0.10.2"
