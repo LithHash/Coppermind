@@ -278,8 +278,7 @@ local function loadSession<T>(
 
 			local entityId = providedEntityId
 			if not entityId then
-				local entity = store.world:entity()
-				entityId = entity.id
+				entityId = store.world:entity()
 			end
 
 			for componentId, saveKey in store.componentMap do
