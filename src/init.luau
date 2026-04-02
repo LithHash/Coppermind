@@ -315,20 +315,24 @@ local function closeSession<T>(store: StoreObject<T>, player: Player): Promise<b
 	end)
 end
 
+local StoreObjectMethods = {
+	mapComponents = mapComponents,
+	loadSession = loadSession,
+	closeSession = closeSession,
+	set = set :: any,
+	get = get :: any,
+	update = update,
+}
+StoreObjectMethods.__index = StoreObjectMethods
+
 local function new<T>(world: World, storeName: string, dataTemplate: T): StoreObject<T>
-	local self = {
+	local self = setmetatable({
 		world = world,
 		sessions = {},
 		dataTemplate = dataTemplate,
 		dataStore = DataStoreService:GetDataStore(storeName),
 		componentMap = {},
-		mapComponents = mapComponents,
-		loadSession = loadSession,
-		closeSession = closeSession,
-		set = set :: any,
-		get = get :: any,
-		update = update,
-	}:: StoreObject<T>
+	}, StoreObjectMethods) :: StoreObject<T>
 
 	coroutine.wrap(function()
 		while true do

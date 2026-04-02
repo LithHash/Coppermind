@@ -2,5 +2,5 @@
 # It is not intended for manual editing.
 format = 2
 name = "lithhash/coppermind"
-version = "0.1.11"
+version = "0.1.12"
 target = "roblox"

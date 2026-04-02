@@ -1,5 +1,5 @@
 name = "lithhash/coppermind"
-version = "0.1.11"
+version = "0.1.12"
 authors = ["lithhash"]
 repository = "https://github.com/LithHash/Coppermind"
 license = "MIT"
